@@ -50,8 +50,24 @@ public class Calculate
 	public static double toRadians(double number){
 		double answer = 0;
 		answer = number*3.14159/180;
-		return answer;
-		
+		return answer;	
 	}
 	
+	//a call to discriminant provides the coefficients of a quadratic equation 
+	//in the standard form(a, b, c) and returns the value of the discriminant.
+	//it accepts 3 doubles and returns a double.
+	public static double discriminant(double a, double b, double c){
+		double answer = 0;
+		answer = Math.pow(b, 2) - 4*a*c;
+		/*if (answer <0 ){
+			System.out.println("There is no real roots");} */
+		return answer;
+	}
+	
+	//a call to toImproperFrac converts mixed number into an improper fraction
+	//the method accepts three integers and returns a string
+	//public static String toImproperFrac(WholeNumber, numerator, demoninator) {
+		//int answer = 0;
+		
+
 }
