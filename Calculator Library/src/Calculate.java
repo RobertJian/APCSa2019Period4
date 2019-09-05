@@ -37,12 +37,21 @@ public class Calculate
 		return answer;
 		
 	}
-	//a call to toDegree converts an angle measure given in radians into degree.
+	//a call to toDegree converts an angle measure given in radians into degrees.
 		//it accepts a double and returns a double.
-	public static double toDegree(double number) {
+	public static double toDegrees(double number) {
 		double answer = 0;
 		answer = number*180/3.14159;
 		return answer;
 		
 	}
+	//a call to toRadians converts an angle measure given in degrees into radians.
+		//it accepts a double and returns a double.
+	public static double toRadians(double number){
+		double answer = 0;
+		answer = number*3.14159/180;
+		return answer;
+		
+	}
+	
 }
