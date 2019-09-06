@@ -5,6 +5,8 @@
  */
 public class Calculate
 {
+   //Part 1	
+
 	//a call to square returns the square of the value passes.
 	//it accepts and returns an integer.
 	public static int square(int number) {
@@ -86,7 +88,7 @@ public class Calculate
 		return answer;
 	}
 	
-	////a call to foil converts binomial multiplication of the form (ax+b)(cx+d) into a quadratic equation of the form ax^2+bx+c
+	//a call to foil converts binomial multiplication of the form (ax+b)(cx+d) into a quadratic equation of the form ax^2+bx+c
 	//the method accepts four integers and a String and returns a String.
 	public static String foil(int a, int b, int c, int d, String variable) {
 		int coefficient1 = a*c;
@@ -96,5 +98,77 @@ public class Calculate
 		return answer; 
 	}
 	
-
+   //Part 2
+	
+	//a call to isDivisibleBy determines whether or not one integer is evenly divisible by another.
+	//the method accepts 2 integers and returns a boolean
+	public static boolean isDivisbleBy(int number1, int number2) {
+		int i = number1%number2;
+		boolean answer; 
+		if(i>0) {
+			answer = false;
+		}else {
+			answer = true;}
+		return answer;
+		
+		}
+	
+	//a call to absValue returns the absolute value of the number passed
+	//the method accepts a double and returns a double
+	public static double absValue(double number) {
+		double answer = 0;
+		if(number<0){
+			answer = number*(-1);
+		}else{
+			answer = number;}
+		return answer;
+		}
+		
+	//a call to max returns the larger of the values passed.
+	//the method accepts two double and returns a double.
+	public static double max(double value1, double value2) {
+		double max = 0;
+		if(value1<value2) {
+			max = value2;
+		}else if(value1>value2) {
+			max = value1;
+		}else if(value1==value2){
+			System.out.print("The values are equal to each other therefore the max is ");
+			max = value1; }
+		return max;
+		}
+	
+	//a call to max returns the larger of the values passed.
+	//the method accepts three double and returns a double.
+		public static double max(double value1, double value2, double value3) {
+			double max = 0;
+			if(value3<value1) {
+				if(value2<value1) {
+					max = value1;
+				}
+			}
+			if(value1<value2) {
+				if(value3<value2) {
+					max = value2;
+				}
+			}
+			if(value1<value3) {
+				if(value2<value3) {
+					max = value3;
+				}
+			}
+			return max;
+		}
+		
+	//a call to min returns the smaller of the values passed.
+	//the method accepts two integers and returns an int.
+		public static int min(int value1, int value2) {
+			int min = 0;
+			if(value1<value2) {
+				min = value1;
+			}else if(value2<value1) {
+				min = value2;}
+			return min;
+			}
 }
+	

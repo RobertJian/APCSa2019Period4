@@ -6,6 +6,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
+	//Part 1
 		System.out.println(Calculate.square(-11)); 
 		System.out.println(Calculate.cube(-2));
 		System.out.println(Calculate.average(3, 50));
@@ -16,7 +17,19 @@ public class DoMath {
 		System.out.println(Calculate.toImproperFrac(3, 1, 5));
 		System.out.println(Calculate.toMixedNum(8, 5));
 		System.out.println(Calculate.foil(2, 2 ,2, 2, "x"));
-
+	//Part 2 
+		System.out.println(Calculate.isDivisbleBy(129,3));
+		System.out.println(Calculate.absValue(-101.999));
+		System.out.println(Calculate.max(8, 6));
+		System.out.println(Calculate.max(7, 6, 2));
+		System.out.println(Calculate.max(7, 6, 201));
+		System.out.println(Calculate.max(7, 999, 201));
+		System.out.println(Calculate.min(111, 1234));
+		
+		
+		
+		
+		
 	}
 
 }
