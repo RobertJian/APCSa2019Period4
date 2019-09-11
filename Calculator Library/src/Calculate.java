@@ -105,7 +105,7 @@ public class Calculate
 	public static boolean isDivisbleBy(int number1, int number2) {
 		int i = number1%number2;
 		boolean answer; 
-		if(i>0) {
+		if(i!=0) {
 			answer = false;
 		}else {
 			answer = true;}
@@ -116,59 +116,61 @@ public class Calculate
 	//a call to absValue returns the absolute value of the number passed
 	//the method accepts a double and returns a double
 	public static double absValue(double number) {
-		double answer = 0;
+		double answer = number;
 		if(number<0){
-			answer = number*(-1);
-		}else{
-			answer = number;}
+			answer = number*(-1);}
 		return answer;
 		}
 		
 	//a call to max returns the larger of the values passed.
 	//the method accepts two double and returns a double.
 	public static double max(double value1, double value2) {
-		double max = 0;
+		double max = value1;
 		if(value1<value2) {
-			max = value2;
-		}else if(value1>value2) {
-			max = value1;
-		}else if(value1==value2){
-			System.out.print("The values are equal to each other therefore the max is ");
-			max = value1; }
+			max = value2;}
 		return max;
-		}
+	}
 	
 	//a call to max returns the larger of the values passed.
 	//the method accepts three double and returns a double.
 		public static double max(double value1, double value2, double value3) {
-			double max = 0;
+			double max = value3;
 			if(value3<value1) {
 				if(value2<value1) {
 					max = value1;
-				}
-			}
-			if(value1<value2) {
-				if(value3<value2) {
+				}else
 					max = value2;
+			//}else if(value2<value3) {
+					//max = value3;
+				//}else{
+					//max = value2;
 				}
-			}
-			if(value1<value3) {
-				if(value2<value3) {
-					max = value3;
-				}
-			}
 			return max;
 		}
 		
 	//a call to min returns the smaller of the values passed.
 	//the method accepts two integers and returns an int.
 		public static int min(int value1, int value2) {
-			int min = 0;
+			int min = value2;
 			if(value1<value2) {
-				min = value1;
-			}else if(value2<value1) {
-				min = value2;}
+				min = value1;}
 			return min;
 			}
+		
+	//a call to round2 rounds a double correctly to 2 decimal places and returns a double.
+		public static double round2(double value) {
+			double round = value;
+			if(value>=0) {
+			round = (int)((round+0.005)*100);
+			round = (double)(round/100);
+			}else{
+			round = (int)((value-.005)*100);
+			round = (double)(round/100);}
+			return round;
+			
+		}
 }
 	
+
+
+
