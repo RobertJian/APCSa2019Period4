@@ -169,6 +169,28 @@ public class Calculate
 			return round;
 			
 		}
+		
+   //Part 3
+	//a call to exponent raises a value to a positive integer power.
+	//the method accepts a double and an int and returns a double.
+		public static double exponent(double base, int power) {
+			double exponent = base;
+			for(int i= 1; i<power; i++) {
+				exponent *= base;} //this makes sense because each loop with execute until the power is less than i meaning that the exponent will multiple by itself until the test is false
+			if(power == 0) {
+				exponent = 1;}
+			return exponent;
+			}
+		
+	//a call to factorial returns the factorial of the value passed
+	//the method accepts an int and returns an int.
+		public static int factorial(int n) {
+			int factorial = 1;
+			for(int i=2; i<=n; i++) {
+				factorial = factorial * i;} //each loop multiply by i+1 so its like 1*2*3*4 until it stops
+			return factorial;
+			}
+		
 }
 	
 
