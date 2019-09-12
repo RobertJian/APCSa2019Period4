@@ -139,12 +139,7 @@ public class Calculate
 				if(value2<value1) {
 					max = value1;
 				}else
-					max = value2;
-			//}else if(value2<value3) {
-					//max = value3;
-				//}else{
-					//max = value2;
-				}
+					max = value2;}
 			return max;
 		}
 		
@@ -171,6 +166,7 @@ public class Calculate
 		}
 		
    //Part 3
+		
 	//a call to exponent raises a value to a positive integer power.
 	//the method accepts a double and an int and returns a double.
 		public static double exponent(double base, int power) {
