@@ -18,7 +18,7 @@ public class DoMath {
 		System.out.println(Calculate.toMixedNum(8, 5));
 		System.out.println(Calculate.foil(2, 2 ,2, 2, "x"));
 	//Part 2
-		System.out.println(Calculate.isDivisbleBy(-129,5));
+		System.out.println(Calculate.isDivisibleBy(-129,5));
 		System.out.println(Calculate.absValue(101.999));
 		System.out.println(Calculate.max(8, 9));
 		System.out.println(Calculate.max(90, 100, 101));
@@ -27,6 +27,7 @@ public class DoMath {
 	//Part 3
 		System.out.println(Calculate.exponent(8,2));
 		System.out.println(Calculate.factorial(5));
+		System.out.println(Calculate.isPrime(-103333));
 		
 		
 	}
