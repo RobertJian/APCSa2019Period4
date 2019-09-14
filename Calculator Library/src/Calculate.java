@@ -171,6 +171,7 @@ public class Calculate
 		}
 		
    //Part 3
+		
 	//a call to exponent raises a value to a positive integer power.
 	//the method accepts a double and an int and returns a double.
 		public static double exponent(double base, int power) {
