@@ -102,7 +102,7 @@ public class Calculate
 	
 	//a call to isDivisibleBy determines whether or not one integer is evenly divisible by another.
 	//the method accepts 2 integers and returns a boolean
-	public static boolean isDivisbleBy(int number1, int number2) {
+	public static boolean isDivisibleBy(int number1, int number2) {
 		int i = number1%number2;
 		boolean answer; 
 		if(i!=0) {
@@ -139,12 +139,7 @@ public class Calculate
 				if(value2<value1) {
 					max = value1;
 				}else
-					max = value2;
-			//}else if(value2<value3) {
-					//max = value3;
-				//}else{
-					//max = value2;
-				}
+					max = value2;}
 			return max;
 		}
 		
@@ -191,6 +186,27 @@ public class Calculate
 				factorial = factorial * i;} //each loop multiply by i+1 so its like 1*2*3*4 until it stops
 			return factorial;
 			}
+		
+	//a call to isPrime determines whether or not an integer is prime
+	//the method accepts an integer and returns a boolean
+		public static boolean isPrime(int number) {
+			boolean prime = false;
+			if(number==2) {
+				prime=true;
+			}else{
+				for(int i=2; i<absValue(number); i++) {
+					if (isDivisibleBy(number, i) == true) {
+						prime = false;
+						return prime;
+					}else{
+						prime = true;}
+				}
+			}
+				return prime;
+		}
+		
+	//a call to gcf finds the greatest common factor of two integers
+	//the method accepts two positive integers and returns an integer.
 		
 }
 	
