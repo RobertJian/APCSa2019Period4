@@ -29,7 +29,7 @@ public class DoMath {
 		System.out.println(Calculate.factorial(5));
 		System.out.println(Calculate.isPrime(-103333));
 		
-		
+		//
 	}
 
 }
