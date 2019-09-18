@@ -207,9 +207,29 @@ public class Calculate
 		
 	//a call to gcf finds the greatest common factor of two integers
 	//the method accepts two positive integers and returns an integer.
+		public static int gcf(int num1, int num2) {
+			int factor = 1;
+			for(int i = 1; i<= absValue((min(num1 , num2))); i++){
+				if(isDivisibleBy(num1, i)==true && isDivisibleBy(num2 , i)==true) {
+					factor = i;}
+				}
+			return factor;
+				
+		}
 		
+	//a call to sqrt returns an approximation of the sqaure root of the value passed and round to two decimal places
+	// the method accepts a double and returns a double
+		public static double sqrt(double root) {
+			double guess = 1;
+			while(absValue(root-guess*guess)> 0) {
+				guess = .5*(root/(guess+guess));
+			}
+			guess = round2(guess);
+			return guess;
+		}
 }
 	
+
 
 
 
