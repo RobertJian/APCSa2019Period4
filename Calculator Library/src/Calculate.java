@@ -220,11 +220,9 @@ public class Calculate
 	//a call to sqrt returns an approximation of the square root of the value passed and round to two decimal places
 	// the method accepts a double and returns a double
 		public static double sqrt(double root) {
-			double guess = 6;
+			double guess = 1;
 			while(absValue(root-guess*guess)> 0.005) {
-				guess = .5*(root/(guess+guess));
-				//guess++;
-				return round2(guess);
+				guess = .5*(root/guess+guess);
 				
 			}
 			return round2(guess);
