@@ -227,9 +227,25 @@ public class Calculate
 			}
 			return round2(guess);
 		}
-}
 	
+	//Part 4
 
+	//a call to quadForm uses the coefficients of a quadratic equation in standard form and uses the quadratic formula to approximate the real roots, if any.
+	//the method accepts 3 integers and returns a string. 
+		public static String quadForm(int a, int b, int c) {
+			double root1;
+			double root2;
+			if(discriminant(a,b,c)>0) {
+				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
+				root2 = ((-b - sqrt(discriminant(a,b,c)))/(2*a));
+				return root1 + " and " + root2;
+			}else if(discriminat(a,b,c)==0) {
+				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
+				return root1+ " ";
+			}else if
+		}
+
+}
 
 
 
