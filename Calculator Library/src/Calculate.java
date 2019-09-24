@@ -65,7 +65,7 @@ public class Calculate
 	//it accepts 3 doubles and returns a double.
 	public static double discriminant(double a, double b, double c){
 		double answer = 0;
-		answer = Math.pow(b, 2) - 4*a*c;
+		answer = b * b - 4*a*c;
 		return answer;
 	}
 	
@@ -75,12 +75,18 @@ public class Calculate
 		int numerator = number1*number3+number2;
 		int denominator = number3;
 		String answer = numerator+"/"+denominator;
+		if(number3 ==0) {
+			throw new IllegalArgumentException("0 cannot be in the denominator");
+		}
 		return answer;
 	}
 	
 	//a call to toMixedNum converts improper fraction into a mixed number.
 	//the method accepts 2 integers and returns a String.
 	public static String toMixedNum(int number1, int number2) {
+		if(number2==0) {
+			throw new IllegalArgumentException("0 cannot be in the denominator");
+		}
 		int WholeNum = number1/number2;
 		int numerator = number1%number2;
 		int demoninator = number2;
@@ -103,6 +109,8 @@ public class Calculate
 	//a call to isDivisibleBy determines whether or not one integer is evenly divisible by another.
 	//the method accepts 2 integers and returns a boolean
 	public static boolean isDivisibleBy(int number1, int number2) {
+		if (number2==0) {
+			throw new IllegalArgumentException("number1 cannot be divided by zero");}
 		int i = number1%number2;
 		boolean answer; 
 		if(i!=0) {
@@ -171,6 +179,10 @@ public class Calculate
 	//the method accepts a double and an int and returns a double.
 		public static double exponent(double base, int power) {
 			double exponent = base;
+			if (power<0) {
+				for(int i= -1; i>power; i--) {
+				exponent *= base;}
+				exponent = 1/exponent; }
 			for(int i= 1; i<power; i++) {
 				exponent *= base;} //this makes sense because each loop with execute until the power is less than i meaning that the exponent will multiple by itself until the test is false
 			if(power == 0) {
@@ -181,6 +193,9 @@ public class Calculate
 	//a call to factorial returns the factorial of the value passed
 	//the method accepts an int and returns an int.
 		public static int factorial(int n) {
+			if(n<0) {
+				throw new IllegalArgumentException("factors cannot be negative");
+			}
 			int factorial = 1;
 			for(int i=2; i<=n; i++) {
 				factorial = factorial * i;} //each loop multiply by i+1 so its like 1*2*3*4 until it stops
@@ -208,6 +223,9 @@ public class Calculate
 	//a call to gcf finds the greatest common factor of two integers
 	//the method accepts two positive integers and returns an integer.
 		public static int gcf(int num1, int num2) {
+			if(num1 == 0 || num2 == 0) {
+				throw new IllegalArgumentException("zeros doesn't have a greatest common factor");
+			}
 			int factor = 1;
 			for(int i = 1; i<= absValue((min(num1 , num2))); i++){
 				if(isDivisibleBy(num1, i)==true && isDivisibleBy(num2 , i)==true) {
@@ -221,7 +239,10 @@ public class Calculate
 	// the method accepts a double and returns a double
 		public static double sqrt(double root) {
 			double guess = 1;
-			while(absValue(root-guess*guess)> 0.005) {
+			if(root<0) {
+				throw new IllegalArgumentException("the root cannot be a negative number");
+			}
+			while(absValue(root-guess*guess)> 0.00) {
 				guess = .5*(root/guess+guess);
 				
 			}
@@ -239,10 +260,12 @@ public class Calculate
 				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
 				root2 = ((-b - sqrt(discriminant(a,b,c)))/(2*a));
 				return root1 + " and " + root2;
-			}else if(discriminat(a,b,c)==0) {
+			}else if(discriminant(a,b,c)==0) {
 				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
 				return root1+ " ";
-			}else if
+			}
+				return "there are no real roots.";
+			
 		}
 
 }

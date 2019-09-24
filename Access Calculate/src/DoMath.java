@@ -25,11 +25,17 @@ public class DoMath {
 		System.out.println(Calculate.min(-11166, 1234));
 		System.out.println(Calculate.round2(-38.4250));
 	//Part 3
-		System.out.println(Calculate.exponent(8,2));
+		System.out.println(Calculate.exponent(3,3));
 		System.out.println(Calculate.factorial(5));
 		System.out.println(Calculate.isPrime(-103333));
 		System.out.println(Calculate.gcf(34, 102));
-		System.out.println(Calculate.sqrt(101));
+		System.out.println(Calculate.sqrt(17));
+	//Part 4
+		System.out.println(Calculate.quadForm(-2, -10, 8));
+		System.out.println(Calculate.toImproperFrac(2, 3, 1));
+		System.out.println(Calculate.isDivisibleBy(3, 2));
+		System.out.println(Calculate.exponent(8,-2));
+		System.out.println(Calculate.exponent(4,2));
 		
 	}
 
