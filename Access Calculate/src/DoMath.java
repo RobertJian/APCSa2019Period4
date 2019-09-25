@@ -34,7 +34,7 @@ public class DoMath {
 		System.out.println(Calculate.quadForm(-2, -10, 8));
 		System.out.println(Calculate.toImproperFrac(2, 3, 1));
 		System.out.println(Calculate.isDivisibleBy(3, 2));
-		System.out.println(Calculate.exponent(8,-2));
+		System.out.println(Calculate.exponent(2,-8));
 		System.out.println(Calculate.exponent(4,2));
 		
 	}

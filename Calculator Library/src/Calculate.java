@@ -235,8 +235,8 @@ public class Calculate
 				
 		}
 		
-	//a call to sqrt returns an approximation of the square root of the value passed and round to two decimal places
-	// the method accepts a double and returns a double
+	//a call to sqrt returns an approximation of the square root of the value passed and round to two decimal places.
+	// the method accepts a double and returns a double.
 		public static double sqrt(double root) {
 			double guess = 1;
 			if(root<0) {
@@ -267,7 +267,7 @@ public class Calculate
 				return "there are no real roots.";
 			
 		}
-
+		
 }
 
 
