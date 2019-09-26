@@ -65,7 +65,7 @@ public class Calculate
 	//it accepts 3 doubles and returns a double.
 	public static double discriminant(double a, double b, double c){
 		double answer = 0;
-		answer = b * b - 4*a*c;
+		answer = (b * b) - 4*a*c;
 		return answer;
 	}
 	
