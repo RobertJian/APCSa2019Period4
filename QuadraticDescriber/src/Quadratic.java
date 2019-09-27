@@ -110,7 +110,7 @@ public class Quadratic {
 			if(discriminant(a,b,c)>0) {
 				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
 				root2 = ((-b - sqrt(discriminant(a,b,c)))/(2*a));
-				return root1 + " and " + root2;
+				return "0, " + root1 +")" + " and " + "0, " + root2 + ")";
 			}else if(discriminant(a,b,c)==0) {
 				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
 				return root1+ " ";
