@@ -5,12 +5,19 @@
  */
 public class Quadratic {
 	
+	//a call to square returns the square of the value passes.
+	//it accepts and returns an integer.
+		public static double square(double number) {
+			double answer = number*number; 
+			return answer;
+		}
+		
 	//a call to isDivisibleBy determines whether or not one integer is evenly divisible by another.
-	//the method accepts 2 integers and returns a boolean
-		public static boolean isDivisibleBy(int number1, int number2) {
+	//the method accepts 2 double and returns a boolean
+		public static boolean isDivisibleBy(double number1, double number2) {
 			if (number2==0) {
 				throw new IllegalArgumentException("number1 cannot be divided by zero");}
-			int i = number1%number2;
+			double i = number1%number2;
 			boolean answer; 
 			if(i!=0) {
 				answer = false;
@@ -42,9 +49,9 @@ public class Quadratic {
 			}
 			
 	//a call to min returns the smaller of the values passed.
-	//the method accepts two integers and returns an int.
-		public static int min(int value1, int value2) {
-			int min = value2;
+	//the method accepts two double and returns a double.
+		public static double min(double value1, double value2) {
+			double min = value2;
 			if(value1<value2) {
 				min = value1;}
 			return min;
@@ -97,7 +104,7 @@ public class Quadratic {
 		
 	//a call to quadForm uses the coefficients of a quadratic equation in standard form and uses the quadratic formula to approximate the real roots, if any.
 	//the method accepts 3 integers and returns a string. 
-		public static String quadForm(int a, int b, int c) {
+		public static String quadForm(double a, double b, double c) {
 			double root1;
 			double root2;
 			if(discriminant(a,b,c)>0) {
@@ -111,4 +118,21 @@ public class Quadratic {
 				return "there are no real roots.";
 				
 		}		
+		
+	public static String quadrDescriber(double a, double b, double c) {
+		 String description = "Description of the graph of: \n";
+		 		description += a + "x^2" + " + " + b + "x " + " + " + c + "\n\n";
+		 if(a<0) {
+			 	description +="Opens: Down\n";
+		 }else {
+			 	description +="Opens: Up\n";
+		 }
+		double symmetry = (-b)/(2*a);
+				description += "Axis of Symmetry: " + symmetry + "\n";
+				description += "Vertex: ( " + symmetry + ", " + ((a*square(symmetry)+(b*symmetry)+c))+ ")" + "\n";
+				description += "x-intercept(s): " + quadForm(a,b,c)+"\n";
+				description+= "y-intercept: " + c + "\n";
+		return description;
+	}
+	
 }
