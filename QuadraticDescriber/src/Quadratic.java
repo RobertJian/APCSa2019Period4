@@ -95,7 +95,7 @@ public class Quadratic {
 			if(root<0) {
 				throw new IllegalArgumentException("the root cannot be a negative number");
 			}
-			while(absValue(root-guess*guess)> 0.00) {
+			while(absValue(root-guess*guess)> 0.001) {
 				
 			guess = .5*(root/guess+guess);					
 			}
@@ -108,11 +108,11 @@ public class Quadratic {
 			double root1;
 			double root2;
 			if(discriminant(a,b,c)>0) {
-				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
-				root2 = ((-b - sqrt(discriminant(a,b,c)))/(2*a));
-				return "0, " + root1 +")" + " and " + "0, " + root2 + ")";
+				root1 = round2(((-b + sqrt(discriminant(a,b,c)))/(2*a)));
+				root2 = round2(((-b - sqrt(discriminant(a,b,c)))/(2*a)));
+				return "(" + root1 +" ,0)" + " and " + "(" + root2 + " ,0)";
 			}else if(discriminant(a,b,c)==0) {
-				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
+				root1 = round2(((-b + sqrt(discriminant(a,b,c)))/(2*a)));
 				return root1+ " ";
 			}
 				return "there are no real roots.";
@@ -121,17 +121,17 @@ public class Quadratic {
 		
 	public static String quadrDescriber(double a, double b, double c) {
 		 String description = "Description of the graph of: \n";
-		 		description += a + "x^2" + " + " + b + "x " + " + " + c + "\n\n";
+		 		description += "y = " + a + "x^2" + " + " + b + "x " + "+ " + c + "\n\n";
 		 if(a<0) {
 			 	description +="Opens: Down\n";
 		 }else {
 			 	description +="Opens: Up\n";
 		 }
-		double symmetry = (-b)/(2*a);
+		double symmetry = round2((-b)/(2*a));
 				description += "Axis of Symmetry: " + symmetry + "\n";
-				description += "Vertex: ( " + symmetry + ", " + ((a*square(symmetry)+(b*symmetry)+c))+ ")" + "\n";
-				description += "x-intercept(s): " + quadForm(a,b,c)+"\n";
-				description+= "y-intercept: " + c + "\n";
+				description += "Vertex: ( "+ symmetry + ", " + round2(((a*square(symmetry)+(b*symmetry)+c)))+ ")" + "\n";
+				description += "x-intercept(s): " + quadForm(a,b,c) + "\n";
+				description += "y-intercept: (0, " + c + ")\n";
 		return description;
 	}
 	

@@ -235,7 +235,7 @@ public class Calculate
 			if(root<0) {
 				throw new IllegalArgumentException("the root cannot be a negative number");
 			}
-			while(absValue(root-guess*guess)> 0.00) {
+			while(absValue(root-guess*guess)> 0.001) {
 				guess = .5*(root/guess+guess);
 				
 			}
