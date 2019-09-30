@@ -12,7 +12,6 @@ public class QuadraticClient {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Welcome to the Quadratic Describer");
 		System.out.println("Provide values for coefficients a, b, and c");
-		String redo;
  	
 	do {
 		System.out.print("a: ");
@@ -33,7 +32,7 @@ public class QuadraticClient {
 	 
 	 	System.out.println("Do you want to keep going? (Type \"quit\" to end)");
 	 	
-	 	redo = userInput.nextLine();
+	 	userInput.nextLine();
 	 	
 		}while (!userInput.nextLine().equals("quit"));
 		System.out.println("Closing Scanner...");
