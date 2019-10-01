@@ -12,7 +12,7 @@ public class QuadraticClient {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Welcome to the Quadratic Describer");
 		System.out.println("Provide values for coefficients a, b, and c");
- 	
+
 	do {
 		System.out.print("a: ");
 		double a = userInput.nextDouble();
