@@ -10,7 +10,7 @@ public class ProcessingNumbers {
 		int value = userInput.nextInt();
 		int max = value; 
 		int min = value;
-		int evenMax = 0;
+		int evenMax = max; 
 		int evenSum = 0;
 		if(value%2 == 0) {
 			evenSum = value;
@@ -29,13 +29,11 @@ public class ProcessingNumbers {
 				if(scanValue>evenMax) {
 					evenMax = scanValue;
 				}
-			}
-			
+			}			
 		}
 		System.out.println("Biggest number is: " + max);
 		System.out.println("Smallest number is: " + min);
 		System.out.println("The sum of all even number is " + evenSum + " and the biggest even number is " + evenMax );
 		userInput.close();
 	}
-
 }
