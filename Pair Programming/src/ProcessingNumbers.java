@@ -14,8 +14,7 @@ public class ProcessingNumbers {
 		int evenSum = 0;
 		if(value%2!=0) {
 			evenMax = 0;
-		}
-		if(value%2 == 0) {
+		}else{
 			evenSum = value;
 			evenMax = value;
 		}
