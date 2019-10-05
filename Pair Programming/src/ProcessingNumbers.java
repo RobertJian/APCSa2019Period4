@@ -12,6 +12,9 @@ public class ProcessingNumbers {
 		int min = value;
 		int evenMax = -2147483648;
 		int evenSum = 0;
+		if(value%2!=0) {
+			evenMax = 0;
+		}
 		if(value%2 == 0) {
 			evenSum = value;
 			evenMax = value;
@@ -31,6 +34,7 @@ public class ProcessingNumbers {
 					evenMax = scanValue;
 				}
 			}
+			
 		}
 		System.out.println("The maximum is: " + max);
 		System.out.println("the minimum is: " + min);
