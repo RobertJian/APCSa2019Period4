@@ -216,14 +216,17 @@ public class Calculate
 	//a call to gcf finds the greatest common factor of two integers
 	//the method accepts two positive integers and returns an integer.
 		public static int gcf(int num1, int num2) {
-			if(num1 == 0 || num2 == 0) {
-				throw new IllegalArgumentException("zeros doesn't have a greatest common factor");
-			}
 			int factor = 1;
 			for(int i = 1; i<= absValue((min(num1 , num2))); i++){
 				if(isDivisibleBy(num1, i)==true && isDivisibleBy(num2 , i)==true) {
 					factor = i;}
 				}
+			if (num1 == 0) {
+				factor = num2;
+			}else if(num2 ==0) {
+				factor = num1;
+			}
+			
 			return factor;
 				
 		}
