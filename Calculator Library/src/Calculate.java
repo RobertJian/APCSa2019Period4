@@ -141,6 +141,12 @@ public class Calculate
 					max = value1;
 				}else
 					max = value2;}
+			if(value3<value2) {
+				if(value1<value2) {
+					max = value2;
+				}else
+					max = value1;
+			}
 			return max;
 		}
 		
@@ -172,6 +178,9 @@ public class Calculate
 	//the method accepts a double and an int and returns a double.
 		public static double exponent(double base, int power) {
 			double exponent = base;
+			if(base==0 && power ==0) {
+				throw new IllegalArgumentException("0 to the 0th power is undefined");
+			}
 			if (power<0) {
 				for(int i= -1; i>power; i--) {
 				exponent *= base;}
@@ -238,7 +247,7 @@ public class Calculate
 			if(root<0) {
 				throw new IllegalArgumentException("the root cannot be a negative number");
 			}
-			while(absValue(root-guess*guess)> 0.001) {
+			while(absValue(root-guess*guess)> 0.000001) {
 				guess = .5*(root/guess+guess);
 				
 			}
@@ -255,12 +264,12 @@ public class Calculate
 			if(discriminant(a,b,c)>0) {
 				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
 				root2 = ((-b - sqrt(discriminant(a,b,c)))/(2*a));
-				return root1 + " and " + root2;
+				return root1 + " and " + root2; //ask tmr
 			}else if(discriminant(a,b,c)==0) {
-				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
+				root1 = ((-b)/(2*a));
 				return root1+ " ";
 			}
-				return "there are no real roots.";
+				return "no real roots.";
 			
 		}
 		
