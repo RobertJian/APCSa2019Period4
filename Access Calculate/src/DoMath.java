@@ -31,12 +31,12 @@ public class DoMath {
 		System.out.println(Calculate.gcf(34, 102));
 		System.out.println(Calculate.sqrt(17));
 	//Part 4
-		System.out.println(Calculate.quadForm(1, 5, 0));
+		System.out.println(Calculate.quadForm(1, 4, 4));
 		System.out.println(Calculate.toImproperFrac(2, 3, 1));
 		System.out.println(Calculate.isDivisibleBy(3, 2));
 		System.out.println(Calculate.exponent(2,-2));
-		System.out.println(Calculate.exponent(4,2));
-		System.out.println(Calculate.gcf(19, 0));
+		System.out.println(Calculate.exponent(4,3));
+		System.out.println(Calculate.gcf(32, 48));
 		System.out.println(Calculate.max(2, 3, 3));
 		System.out.println(Calculate.sqrt(0));
 		

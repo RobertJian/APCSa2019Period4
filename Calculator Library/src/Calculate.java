@@ -159,6 +159,15 @@ public class Calculate
 			return min;
 			}
 		
+	//a call to min returns the smaller of the values passed.
+	//the method accepts two doubles and returns an double.
+		public static double min(double value1, double value2) {
+			double min = value2;
+			if(value1<value2) {
+				min = value1;}
+			return min;
+			}
+		
 	//a call to round2 rounds a double correctly to 2 decimal places and returns a double.
 		public static double round2(double value) {
 			double round = value;
@@ -235,9 +244,7 @@ public class Calculate
 			}else if(num2 ==0) {
 				factor = num1;
 			}
-			
-			return factor;
-				
+			return factor;	
 		}
 		
 	//a call to sqrt returns an approximation of the square root of the value passed and round to two decimal places.
@@ -249,7 +256,6 @@ public class Calculate
 			}
 			while(absValue(root-guess*guess)> 0.000001) {
 				guess = .5*(root/guess+guess);
-				
 			}
 			return round2(guess);
 		}
@@ -262,12 +268,12 @@ public class Calculate
 			double root1;
 			double root2;
 			if(discriminant(a,b,c)>0) {
-				root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
-				root2 = ((-b - sqrt(discriminant(a,b,c)))/(2*a));
-				return root1 + " and " + root2; //ask tmr
+				root1 = (-b + sqrt(discriminant(a,b,c)))/(2*a);
+				root2 = (-b - sqrt(discriminant(a,b,c)))/(2*a);
+				return "" + round2(min(root1, root2)) + " and " + round2(max(root1, root2)); //ask tmr
 			}else if(discriminant(a,b,c)==0) {
 				root1 = ((-b)/(2*a));
-				return root1+ " ";
+				return "" + round2(root1);
 			}
 				return "no real roots.";
 			

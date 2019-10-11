@@ -45,9 +45,14 @@ public class Quadratic {
 					max = value1;
 				}else
 					max = value2;}
-				return max;
+			if(value3<value2) {
+				if(value1<value2) {
+					max = value2;
+				}else
+					max = value1;
 			}
-			
+			return max;
+		}
 	//a call to min returns the smaller of the values passed.
 	//the method accepts two double and returns a double.
 		public static double min(double value1, double value2) {
@@ -95,7 +100,7 @@ public class Quadratic {
 			if(root<0) {
 				throw new IllegalArgumentException("the root cannot be a negative number");
 			}
-			while(absValue(root-guess*guess)> 0.001) {
+			while(absValue(root-guess*guess)> 0.000001) {
 				
 			guess = .5*(root/guess+guess);					
 			}
@@ -108,16 +113,17 @@ public class Quadratic {
 			double root1;
 			double root2;
 			if(discriminant(a,b,c)>0) {
-				root1 = round2(((-b + sqrt(discriminant(a,b,c)))/(2*a)));
-				root2 = round2(((-b - sqrt(discriminant(a,b,c)))/(2*a)));
-				return "(" + root1 +" ,0)" + " and " + "(" + root2 + " ,0)";
+				root1 = (-b + sqrt(discriminant(a,b,c)))/(2*a);
+				root2 = (-b - sqrt(discriminant(a,b,c)))/(2*a);
+				return "" + round2(min(root1, root2)) + " and " + round2(max(root1, root2)); //ask tmr
 			}else if(discriminant(a,b,c)==0) {
-				root1 = round2(((-b + sqrt(discriminant(a,b,c)))/(2*a)));
-				return root1+ " ";
+				root1 = ((-b)/(2*a));
+				return "" + round2(root1);
 			}
-				return "there are no real roots.";
+				return "no real roots.";
+			
+		}
 				
-		}		
 		
 	public static String quadrDescriber(double a, double b, double c) {
 		 String description = "Description of the graph of: \n";
