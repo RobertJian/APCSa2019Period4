@@ -37,7 +37,10 @@ public class ProcessingNumbers {
 		}
 		System.out.println("The maximum is: " + max);
 		System.out.println("the minimum is: " + min);
-		System.out.println("The sum of all even number is " + evenSum + " and the maximum even number is " + evenMax );
+		System.out.println("The sum of all even number is " + evenSum);
+		if(evenMax%2==0 && value !=0) {
+		System.out.println("The maximum even number is " + evenMax );
+		}
 		userInput.close();
 	}
 }
