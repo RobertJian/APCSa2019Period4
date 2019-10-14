@@ -37,7 +37,7 @@ public class DoMath {
 		System.out.println(Calculate.exponent(2,-2));
 		System.out.println(Calculate.exponent(4,3));
 		System.out.println(Calculate.gcf(32, 48));
-		System.out.println(Calculate.max(2, 3, 3));
+		System.out.println(Calculate.max(2, 3, 2.99));
 		System.out.println(Calculate.sqrt(0));
 		
 		

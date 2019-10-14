@@ -115,7 +115,7 @@ public class Quadratic {
 			if(discriminant(a,b,c)>0) {
 				root1 = (-b + sqrt(discriminant(a,b,c)))/(2*a);
 				root2 = (-b - sqrt(discriminant(a,b,c)))/(2*a);
-				return "" + round2(min(root1, root2)) + " and " + round2(max(root1, root2)); //ask tmr
+				return "" + round2(min(root1, root2)) + " and " + round2(max(root1, root2)); 
 			}else if(discriminant(a,b,c)==0) {
 				root1 = ((-b)/(2*a));
 				return "" + round2(root1);
