@@ -42,45 +42,57 @@ public class Split {
 		 	System.out.println(part1("bread"));
 		 	System.out.println(part1("mayobreadham"));
 		 	System.out.println(part1("mayobread"));
-		 	System.out.println(part1("breadmayobread"));
-		 	System.out.println(part1("breadbread"));
-		 	
+		 	System.out.println(part1("breadmayohamcheesebread"));
+		 	System.out.println(part1("breadhambreadeggbread"));
+		 	System.out.println(part2("apples pineapples bread lettuce tomato bacon mayo ham bread cheese"));
 	 }
 	 public static String part1(String sandwich) {
-		 System.out.print(Arrays.toString(sandwich.split("bread")));
+		 	if(sandwich.indexOf("bread")!= -1) {
+		 		sandwich = sandwich.substring(sandwich.indexOf("bread"));
+		 		if(sandwich.lastIndexOf("bread")!=-1) {
+		 			sandwich = sandwich.substring(sandwich.indexOf("bread"), sandwich.lastIndexOf("bread"));
+		 			System.out.print(Arrays.toString(sandwich.split("bread")));
+		 		}else{
+		 			System.out.println("Not a sandwich");
+		 		}
+		 	}else {
+		 		System.out.print("Not a sandwich");
+		 	}
 		 
 		 return "";
+		}
+	 
 		//Your task Part 1:
-
 		/*Write a method that take in a string like
-
 		* "applespineapplesbreadlettucetomatobaconmayohambreadcheese"
-
 		* describing a sandwich.
-
 		* Use String.split to split up the sandwich by the word "bread" and return what's in the middle of
-
 		* the sandwich and ignores what's on the outside
-
 		* What if it's a fancy sandwich with multiple pieces of bread?
-
 	*/
-
-	//Your task pt 2:
-
-	/*Write a method that take in a string like
-
-	* "apples pineapples bread lettuce tomato bacon mayo ham bread cheese"
-
-	* describing a sandwich
-
-	* use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of
-
-	* the sandwich and ignores what's on the outside.
-
-	* Again, what if it's a fancy sandwich with multiple pieces of bread?
-
-	*/
-
+	 public static String part2(String sandwich) {
+		 	if(sandwich.indexOf("bread")!= -1) {
+		 		sandwich = sandwich.substring(sandwich.indexOf("bread"));
+			 	if(sandwich.lastIndexOf("bread")!=-1) {
+		 			sandwich = sandwich.substring(sandwich.indexOf("bread"), sandwich.lastIndexOf("bread"));
+			 		System.out.print(Arrays.toString(sandwich.split("bread ")));
+			 	}else{
+			 		System.out.println("Not a sandwich");
+			 	}
+			}else {
+			 	System.out.print("Not a sandwich");
+			}
+		 	return "";
 	 }
+			
+	//Your task pt 2:
+	/*Write a method that take in a string like
+	* "apples pineapples bread lettuce tomato bacon mayo ham bread cheese"
+	* describing a sandwich
+	* use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of
+	* the sandwich and ignores what's on the outside.
+	* Again, what if it's a fancy sandwich with multiple pieces of bread?
+	*/
+
 }
+
