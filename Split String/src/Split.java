@@ -43,7 +43,7 @@ public class Split {
 		 	System.out.println(part1("mayobreadham"));
 		 	System.out.println(part1("mayobread"));
 		 	System.out.println(part1("breadmayohamcheesebread"));
-		 	System.out.println(part1("breadhambreadeggbread"));
+		 	System.out.println(part1("breadhambreadeggbreadbreadbread"));
 		 	System.out.println(part2("apples pineapples bread lettuce tomato bacon mayo ham bread cheese"));
 	 }
 	 public static String part1(String sandwich) {
