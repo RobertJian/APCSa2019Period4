@@ -44,23 +44,9 @@ public class Split {
 		 	System.out.println(part1("mayobread"));
 		 	System.out.println(part1("breadmayohamcheesebread"));
 		 	System.out.println(part1("breadhambreadeggbreadbreadbread"));
-		 	System.out.println(part2("apples pineapples bread lettuce tomato bacon mayo ham bread cheese"));
+		 	System.out.println(part1("applespineapplesbreadlettucetomatobaconmayohambreadcheese"));
 	 }
-	 public static String part1(String sandwich) {
-		 	if(sandwich.indexOf("bread")!= -1) {
-		 		sandwich = sandwich.substring(sandwich.indexOf("bread"));
-		 		if(sandwich.lastIndexOf("bread")!=-1) {
-		 			sandwich = sandwich.substring(sandwich.indexOf("bread"), sandwich.lastIndexOf("bread"));
-		 			System.out.print(Arrays.toString(sandwich.split("bread")));
-		 		}else{
-		 			System.out.println("Not a sandwich");
-		 		}
-		 	}else {
-		 		System.out.print("Not a sandwich");
-		 	}
-		 
-		 return "";
-		}
+
 	 
 		//Your task Part 1:
 		/*Write a method that take in a string like
@@ -70,19 +56,20 @@ public class Split {
 		* the sandwich and ignores what's on the outside
 		* What if it's a fancy sandwich with multiple pieces of bread?
 	*/
-	 public static String part2(String sandwich) {
-		 	if(sandwich.indexOf("bread")!= -1) {
-		 		sandwich = sandwich.substring(sandwich.indexOf("bread"));
-			 	if(sandwich.lastIndexOf("bread")!=-1) {
-		 			sandwich = sandwich.substring(sandwich.indexOf("bread"), sandwich.lastIndexOf("bread"));
-			 		System.out.print(Arrays.toString(sandwich.split("bread ")));
-			 	}else{
-			 		System.out.println("Not a sandwich");
-			 	}
-			}else {
-			 	System.out.print("Not a sandwich");
+	 public static String part1(String sandwich) {
+		String[] splitArray = sandwich.split("bread"); //takes out bread 
+		String output = "";
+		int count = 0; // for index
+		while(sandwich.indexOf("bread")!=-1 && count+1< splitArray.length) {
+			sandwich = sandwich.substring(sandwich.indexOf("bread")+5);
+			if(sandwich.indexOf("bread")!= -1) {
+				count++; 
+				output += splitArray[count];
 			}
-		 	return "";
+		}if (count != 0) {
+			return output;
+		}
+		return "Not a sandwich";
 	 }
 			
 	//Your task pt 2:
