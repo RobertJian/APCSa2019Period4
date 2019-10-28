@@ -43,8 +43,10 @@ public class Split {
 		 	System.out.println(part1("mayobreadham"));
 		 	System.out.println(part1("mayobread"));
 		 	System.out.println(part1("breadmayohamcheesebread"));
-		 	System.out.println(part1("breadhambreadeggbreadbreadbread"));
+		 	System.out.println(part1("breadhambreadeggbreadASSbreadbread"));
 		 	System.out.println(part1("applespineapplesbreadlettucetomatobaconmayohambreadcheese"));
+		 	System.out.println(part2( "apples pineapples bread lettuce tomato bacon mayo ham bread cheese"));
+		 	System.out.println(part2( "bread cheese"));
 	 }
 
 	 
@@ -80,6 +82,14 @@ public class Split {
 	* the sandwich and ignores what's on the outside.
 	* Again, what if it's a fancy sandwich with multiple pieces of bread?
 	*/
+	 public static String part2(String sandwich) {
+		 String[] filling = sandwich.split(" ");
+		 String output = "";
+		 for(int i = 1; i<filling.length; i++) {
+			 output += filling[i];
+			 }
+		 	return part1(output);
+	 }
 
 }
 
