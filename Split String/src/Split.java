@@ -27,6 +27,7 @@ public class Split {
 		//play around with String.split!
 
 		//What happens if you "I reallyreally likeapples".split("really") ?
+		
 		 	String[] outputArray1 = "I like apples!".split(" ");
 		 	System.out.println(Arrays.toString(outputArray1));
 		 	

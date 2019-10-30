@@ -29,7 +29,10 @@ public class ArraysLab3 {
 	
 //1) Write a method sum that accepts two arrays of integers arr1 and arr2 and returns an array of integers, in which every element is the sum of the elements at that index for the arrays arr1 and arr2. You can assume arrays arr1 and arr2 have at least one element each and are the same length.
 	public static int[] sum(int[] arr1, int[] arr2) {
-		int[] sumArray = new int [arr1.length+1];
+		int[] sumArray = new int [arr1.length];
+		for(int i = 0; i<arr1.length; i++) {
+			sumArray[i] = arr1[i] + arr2[i]; 
+		}
 		return sumArray;
 	}
 
@@ -38,6 +41,10 @@ public class ArraysLab3 {
 
 	public static int[] append(int[] arr, int num) {
 		int[] apprendedArray = new int[arr.length+1];
+		for(int i = 0; i<arr.length; i++) {
+			apprendedArray[i] = arr[i];
+		}
+		apprendedArray[apprendedArray.length-1]= num;
 		return apprendedArray;
 	}
 
@@ -45,6 +52,13 @@ public class ArraysLab3 {
 
 	public static int[] remove(int[] arr, int idx) {
 		int[] removedArray = new int[arr.length-1];
+		for(int i = 0; i<arr.length; i++) {
+			if (i<idx) {
+				removedArray[i] = arr[i];
+			}else if (i > idx) {
+				removedArray[i-1] = arr[i];
+			}
+		}
 		return removedArray;
 	}
 
@@ -59,8 +73,11 @@ public class ArraysLab3 {
 //5) Write a method rotateRight that accepts an array of integers arr and does not return a value.  The rotateRight method moves each element of arr one index to the right (element 0 goes to element 1, element 1 goes to element 2, …, element n-1 goes to element 0).  You can assume arr has at least one element.
 
 	public static void rotateRight(int[] arr) {
-
-
+		int last = arr[arr.length-1];
+		for(int i = arr.length-1; i>=1; i--) {
+			arr[i]= arr[i-1];
+		}
+		arr[0]=last;
 	}
 
 }
