@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class ArraysLab3 {
 	/*6) Write a method main that will 
@@ -6,7 +7,8 @@ public class ArraysLab3 {
 	integer arrays a1, a2, sumArr, appendArr, removeArr
 	int variables appendNum, removeIdx, sumOfEvens
 	Carry out the following actions
-	Declare array a1 containing the values (5, 10, 15, 20, 25, 30, 35, 40) and array a2 containing the values (7, 14, 21, 28, 35, 42, 49, 56)
+	Declare array a1 containing the values (5, 10, 15, 20, 25, 30, 35, 40) and 
+	array a2 containing the values (7, 14, 21, 28, 35, 42, 49, 56)
 	Form sumArr by calling the sum method with a1 and a2 as inputs
 	Declare int appendNum and set it to 200.
 	Form appendArr by calling the append method with a1 and appendNum as inputs
@@ -22,8 +24,19 @@ public class ArraysLab3 {
 	a1
 	 */
 	public static void main(String[] args) {
-	
-		
+	int[] a1 = {5, 10, 15, 20, 25, 30, 35, 40};
+	int[] a2 = {7, 14, 21, 28, 35, 42, 49 , 56};
+	int[] sumArr = sum(a1, a2);
+	int apprendNum =  200;
+	int[] apprendArr = append(a1, apprendNum);
+	int removeIdx = 5;
+	int[] removeArr = remove(a2, removeIdx);
+	int sumEvens = sumEven(apprendArr);
+	rotateRight(a1);
+	System.out.println(Arrays.toString(sumArr));
+	System.out.println(Arrays.toString(apprendArr));
+	System.out.println(Arrays.toString(removeArr));
+	System.out.println(sumEvens);
 		
 	}
 	
@@ -66,6 +79,9 @@ public class ArraysLab3 {
 
 	public static int sumEven(int[] arr) {
 		int sumEven = 0;
+		for(int i =0; i<((arr.length+1)/2);i++ ) {
+			sumEven += arr[i*2];
+		}
 		return sumEven;
 	}
 
