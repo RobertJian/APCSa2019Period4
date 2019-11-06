@@ -26,8 +26,24 @@ public class FracCalc {
     { 
         // TODO: Implement this function to produce the solution to the input
     	String[] splitInput = input.split(" ");
-        return splitInput[2];
+    	String operand1 = splitInput[0];
+    	String operator = splitInput[1];
+    	String operand2 = splitInput[2];
+    	String num1="0";
+    	String num2="0";
+    	String dem1="1";
+    	String dem2="1";
+    	if(operand1.length==1 && operand1[0].indexOf("/")!=-1){
+    		String[]fraction = operand1[1].split("/");
+    		num1 = fraction[0];
+    		dem1 = fraction[1];
+    		
+    		
+    	}
+        return num1;
     }
+    
+
 
     // TODO: Fill in the space below with any helper methods that you think you will need
     
