@@ -29,18 +29,25 @@ public class FracCalc {
     	String operand1 = splitInput[0];
     	String operator = splitInput[1];
     	String operand2 = splitInput[2];
-    	String num1="0";
-    	String num2="0";
-    	String dem1="1";
-    	String dem2="1";
-    	if(operand1.length==1 && operand1[0].indexOf("/")!=-1){
-    		String[]fraction = operand1[1].split("/");
-    		num1 = fraction[0];
-    		dem1 = fraction[1];
-    		
-    		
-    	}
-        return num1;
+    //	int wholeNum1 = 0;
+    	int wholeNum2 = 0;
+    	//int num1 = 0;
+    	int num2 = 0;
+    	//int dem1 = 1;
+    	int dem2 = 1;
+    	if(operand2.indexOf("_")!=-1 && operand2.indexOf("/")!=-1){
+    		String[] mixNum2 = operand2.split("_");
+    		wholeNum2 = Integer.parseInt(mixNum2[0]);
+    		String[]fraction = mixNum2[1].split("/");
+    		num2 = Integer.parseInt(fraction[0]);
+    		dem2 = Integer.parseInt(fraction[1]);
+    	}else if(operand2.indexOf("_")==-1 && operand2.indexOf("/")!=-1){
+    		String[] fraction = operand2.split("/");
+    		num2 = Integer.parseInt(fraction[0]);
+    		dem2 = Integer.parseInt(fraction[1]);
+    	}else
+    		wholeNum2 = Integer.parseInt(operand2);
+        return "whole:" + wholeNum2 + " numerator:" + num2 + " denominator:" + dem2;
     }
     
 
