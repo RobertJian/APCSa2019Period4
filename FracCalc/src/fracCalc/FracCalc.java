@@ -29,29 +29,26 @@ public class FracCalc {
     	String operand1 = splitInput[0];
     	String operator = splitInput[1];
     	String operand2 = splitInput[2];
-    //	int wholeNum1 = 0;
-    	int wholeNum2 = 0;
-    	//int num1 = 0;
-    	int num2 = 0;
-    	//int dem1 = 1;
-    	int dem2 = 1;
-    	if(operand2.indexOf("_")!=-1 && operand2.indexOf("/")!=-1){
-    		String[] mixNum2 = operand2.split("_");
-    		wholeNum2 = Integer.parseInt(mixNum2[0]);
-    		String[]fraction = mixNum2[1].split("/");
-    		num2 = Integer.parseInt(fraction[0]);
-    		dem2 = Integer.parseInt(fraction[1]);
-    	}else if(operand2.indexOf("_")==-1 && operand2.indexOf("/")!=-1){
-    		String[] fraction = operand2.split("/");
-    		num2 = Integer.parseInt(fraction[0]);
-    		dem2 = Integer.parseInt(fraction[1]);
-    	}else
-    		wholeNum2 = Integer.parseInt(operand2);
-        return "whole:" + wholeNum2 + " numerator:" + num2 + " denominator:" + dem2;
+    	int[] frac = {0, 0, 1};
+    	splitFrac(operand2, frac);
+        return "whole:" + frac[0] + " numerator:" + frac[1] + " denominator:" + frac[2];
     }
     
-
-
     // TODO: Fill in the space below with any helper methods that you think you will need
+    
+   public static void splitFrac(String operand, int[] frac) {
+	 if(operand.indexOf("_")!=-1 && operand.indexOf("/")!=-1){
+   		String[] mixNum = operand.split("_");
+   		frac[0] = Integer.parseInt(mixNum[0]);
+   		String[]fraction = mixNum[1].split("/");
+   		frac[1] = Integer.parseInt(fraction[0]);
+   		frac[2] = Integer.parseInt(fraction[1]);
+   	}else if(operand.indexOf("_")==-1 && operand.indexOf("/")!=-1){
+   		String[] fraction = operand.split("/");
+   		frac[1] = Integer.parseInt(fraction[0]);
+   		frac[2] = Integer.parseInt(fraction[1]);
+   	}else
+   		frac[0] = Integer.parseInt(operand);
+   }
     
 }
