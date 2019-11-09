@@ -33,7 +33,15 @@ public class FracCalc {
     	int[] frac2 = {0, 0, 1};
     	splitFrac(operand1, frac1);
     	splitFrac(operand2, frac2);
+    	String answer = "0";
+    	int[] improperFrac1 = {0;
+    	int improperFrac2 = 0;
+    	if (operator.equals("*")) {
+    		
+    		
+    	}
         return "whole:" + frac1[0] + " numerator:" + frac1[1] + " denominator:" + frac1[2];
+        
     }
     
     // TODO: Fill in the space below with any helper methods that you think you will need
@@ -53,24 +61,24 @@ public class FracCalc {
    		frac[0] = Integer.parseInt(operand);
    }
    
-   public static String toImproperFrac(int number1, int number2, int number3) {
-		int numerator = number1*number3+number2;
-		int denominator = number3;
-		String answer = numerator+"/"+denominator;
-		if(number3 ==0) {
-			throw new IllegalArgumentException("0 cannot be in the denominator");
-		}
-		return answer;
-	}
-   
-	public static String toMixedNum(int number1, int number2) {
-		if(number2==0) {
-			throw new IllegalArgumentException("0 cannot be in the denominator");
-		}
-		int WholeNum = number1/number2;
-		int numerator = number1%number2;
-		int demoninator = number2;
-		String answer = WholeNum +"_"+ numerator + "/"+demoninator;
-		return answer;
-	}
+//   public static void toImproperFrac(int number1, int number2, int number3) {
+//		int numerator = number1*number3+number2;
+//		int denominator = number3;
+//		String answer = numerator+"/"+denominator;
+//		if(number3 ==0) {
+//			throw new IllegalArgumentException("0 cannot be in the denominator");
+//		}
+//	
+//	}
+//   
+//	public static String toMixedNum(int number1, int number2) {
+//		if(number2==0) {
+//			throw new IllegalArgumentException("0 cannot be in the denominator");
+//		}
+//		int WholeNum = number1/number2;
+//		int numerator = number1%number2;
+//		int demoninator = number2;
+//		String answer = WholeNum +"_"+ numerator + "/"+demoninator;
+//		return answer;
+//	}
 }
