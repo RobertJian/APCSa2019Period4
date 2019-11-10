@@ -15,7 +15,9 @@ public class FracCalc {
     	System.out.println("\nDo you want to keep going? (Type \"quit\" to end)");
     	
     	userInput.nextLine();
+    	
     	}while (!userInput.nextLine().equals("quit"));
+    	
     	userInput.close(); 
 
     }
@@ -35,29 +37,28 @@ public class FracCalc {
     	String operand1 = splitInput[0];
     	String operator = splitInput[1];
     	String operand2 = splitInput[2];
-    	int num = 0;
-    	int dem = 1;
-    	int wholeNum = 0;
-    	int[] frac1 = {0, 0, 1};
-    	int[] frac2 = {0, 0, 1};
-    	splitFrac(operand1, frac1);
-    	splitFrac(operand2, frac2);
-    	//String answer = "0";
-    	int[] impropFrac1 = {frac1[0]*frac1[2]+frac1[1] ,frac1[2]};
-    	int[] impropFrac2 = {frac2[0]*frac2[2]+frac2[1] ,frac2[2]};
+    	int[] mixNum1 = {0, 0, 1};
+    	int[] mixNum2 = {0, 0, 1};
+    	int[] improperFrac1 = {0, 1};
+    	int[] improperFrac2 = {0, 1};
+    	splitFrac(operand1, mixNum1);
+    	splitFrac(operand2, mixNum2);
+    	int[] improperAns = {0, 1};
+    	int[] mixAns = {0, 0, 1};
+    	toImproperFrac(mixNum1, improperFrac1);
+    	toImproperFrac(mixNum2, improperFrac2);
     	if (operator.equals("*")) {
-    		num = impropFrac1[0] * impropFrac2[0];
-    		dem = impropFrac1[1] * impropFrac2[1];
-    		wholeNum = num/dem;
-    		num = num%dem;
-    		if(num%dem!=0) {
-    			return wholeNum +"_" + num + "/" + dem;
+    		improperAns[0] = improperFrac1[0] * improperFrac2[0];
+    		improperAns[1] = improperFrac1[1] * improperFrac2[1];
+    		toMixedNum(improperAns, mixAns);
+    		if(improperAns[0]%improperAns[1]!=0) {
+    			return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
     		}else {
-    			return wholeNum + "";
+    			return mixAns[0] + "";
     		}
     		
     	}
-        return "num:" + num + " dem:" + dem;
+        return "num:" + improperAns[0] + " dem:" + improperAns[1];
         
     }
     
@@ -78,24 +79,59 @@ public class FracCalc {
    		frac[0] = Integer.parseInt(operand);
    }
    
-   public static void toImproperFrac(int[] frac){
-	   
-		frac[0] = frac[0]*frac[1]+frac[2];
-		frac[1] = frac[2];
-		String answer = numerator+"/"+denominator;
-		if(number3 ==0) {
+   public static void toImproperFrac(int[] mix, int[] impropfrac){
+		impropfrac[0] = mix[0]*mix[2]+mix[1];
+		if(mix[0]<0 || mix[1]<0) {
+			impropfrac[0] = mix[0]*mix[2]-mix[1];
+		}
+		impropfrac[1] = mix[2];
+		if(mix[2]==0) {
 			throw new IllegalArgumentException("0 cannot be in the denominator");
 		}
 	}
    
-//	public static String toMixedNum(int number1, int number2) {
-//		if(number2==0) {
-//			throw new IllegalArgumentException("0 cannot be in the denominator");
-//		}
-//		int WholeNum = number1/number2;
-//		int numerator = number1%number2;
-//		int demoninator = number2;
-//		String answer = WholeNum +"_"+ numerator + "/"+demoninator;
-//		return answer;
-//	}
+	public static void toMixedNum(int[] improper, int[] ans) {
+		if(improper[1]==0) {
+			throw new IllegalArgumentException("0 cannot be in the denominator");
+		}
+		ans[0] = improper[0]/improper[1];
+		ans[1] = improper[0]%improper[1];
+		ans[2] = improper[1];
+		if(ans[1]<0) {
+			ans[1]*= -1;
+		}
+	}
+	
+	//public static void simplify()
+	
+	
+	
+	public static int gcf(int num1, int num2) {
+		int factor = 1;
+		for(int i = 1; i<= Math.abs((Math.min(num1 , num2))); i++){
+			if(isDivisibleBy(num1, i)==true && isDivisibleBy(num2 , i)==true) {
+				factor = i;}
+			}
+		if (num1 == 0) {
+			factor = num2;
+		}else if(num2 ==0) {
+			factor = num1;
+		}
+		return factor;	
+	}
+	
+	public static boolean isDivisibleBy(int number1, int number2) {
+		if (number2==0) {
+			throw new IllegalArgumentException("number1 cannot be divided by zero");}
+		int i = number1%number2;
+		boolean answer; 
+		if(i!=0) {
+			answer = false;
+		}else {
+			answer = true;}
+		return answer;
+		
+		}
+
+	
 }
