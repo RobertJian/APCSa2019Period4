@@ -39,11 +39,11 @@ public class FracCalc {
     	String operand2 = splitInput[2];
     	int[] mixNum1 = {0, 0, 1};
     	int[] mixNum2 = {0, 0, 1};
-    	int[] improperFrac1 = {0, 1};
+    	int[] improperFrac1 = {1, 1};
     	int[] improperFrac2 = {0, 1};
     	splitFrac(operand1, mixNum1);
     	splitFrac(operand2, mixNum2);
-    	int[] improperAns = {0, 1};
+    	int[] improperAns = {1, 1};
     	int[] mixAns = {0, 0, 1};
     	toImproperFrac(mixNum1, improperFrac1);
     	toImproperFrac(mixNum2, improperFrac2);
@@ -52,9 +52,9 @@ public class FracCalc {
     		improperAns[1] = improperFrac1[1] * improperFrac2[1];
     		toMixedNum(improperAns, mixAns);
     		if(improperAns[0]%improperAns[1]!=0) {
-    			return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
-    		}else {
-    			return mixAns[0] + "";
+//    			return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
+//    		}else {
+//    			return mixAns[0] + "";
     		}
     		
     	}
@@ -97,12 +97,17 @@ public class FracCalc {
 		ans[0] = improper[0]/improper[1];
 		ans[1] = improper[0]%improper[1];
 		ans[2] = improper[1];
+		simplify(ans);
 		if(ans[1]<0) {
 			ans[1]*= -1;
 		}
 	}
 	
-	//public static void simplify()
+	public static void simplify(int[] mixedNum) {
+		int newNum = mixedNum[1];
+		mixedNum[1] /= gcf(newNum, mixedNum[2]);
+		mixedNum[2] /= gcf(newNum, mixedNum[2]);
+	}
 	
 	
 	
