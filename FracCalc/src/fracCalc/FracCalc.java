@@ -52,10 +52,22 @@ public class FracCalc {
     		improperAns[1] = improperFrac1[1] * improperFrac2[1];
     		toMixedNum(improperAns, mixAns);
     		if(improperAns[0]%improperAns[1]!=0) {
-//    			return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
-//    		}else {
-//    			return mixAns[0] + "";
+    			return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
+    		}else {
+    			return mixAns[0] + "";
     		}
+    	}
+    	if (operator.equals("/")) {
+    		improperAns[0] = improperFrac1[0] * improperFrac2[1];
+    		improperAns[1] = improperFrac1[1] * improperFrac2[0];
+    		toMixedNum(improperAns, mixAns);
+    		if(improperAns[0]%improperAns[1]!=0) {
+    			return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
+    		}else {
+    			return mixAns[0] + "";
+    		}
+    	}
+    	if (operator.equals("+")) {
     		
     	}
         return "num:" + improperAns[0] + " dem:" + improperAns[1];
@@ -81,7 +93,7 @@ public class FracCalc {
    
    public static void toImproperFrac(int[] mix, int[] impropfrac){
 		impropfrac[0] = mix[0]*mix[2]+mix[1];
-		if(mix[0]<0 || mix[1]<0) {
+		if(mix[0]<0) {
 			impropfrac[0] = mix[0]*mix[2]-mix[1];
 		}
 		impropfrac[1] = mix[2];
@@ -100,6 +112,9 @@ public class FracCalc {
 		simplify(ans);
 		if(ans[1]<0) {
 			ans[1]*= -1;
+		}
+		if(ans[2]<0) {
+			ans[2]*= -1;
 		}
 	}
 	
