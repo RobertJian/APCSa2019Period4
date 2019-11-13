@@ -1,4 +1,9 @@
 package fracCalc;
+/*Robert Jian
+ * 4th period
+ * November 11, 2019
+ * to do math on mixed num
+ */
 
 import java.util.*;
 
@@ -8,15 +13,15 @@ public class FracCalc {
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
     	Scanner userInput =  new Scanner(System.in);
-    	
+    	String resume;
     	do {
     	System.out.println("Enter expression:");
     	System.out.println(produceAnswer(userInput.nextLine()));
-    	System.out.println("\nDo you want to keep going? (Type \"quit\" to end)");
+    	System.out.println();
+    	System.out.println("Do you want to keep going? (Type \"quit\" to end)");
+    	resume = userInput.nextLine();
     	
-    	userInput.nextLine();
-    	
-    	}while (!userInput.nextLine().equals("quit"));
+    	}while (!resume.equals("quit"));
     	
     	userInput.close(); 
 
