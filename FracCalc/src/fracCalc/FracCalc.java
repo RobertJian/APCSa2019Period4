@@ -157,6 +157,5 @@ public class FracCalc {
 		return answer;
 		
 		}
-
 	
 }
