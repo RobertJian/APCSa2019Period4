@@ -36,7 +36,7 @@ public class FracCalc {
     // The function should return the result of the fraction after it has been calculated
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input)
-    { 
+    {
         // TODO: Implement this function to produce the solution to the input
     	String[] splitInput = input.split(" ");
     	String operand1 = splitInput[0];
@@ -73,10 +73,8 @@ public class FracCalc {
     		}
     	}
     	if (operator.equals("+")) {
-    		
     	}
         return "num:" + improperAns[0] + " dem:" + improperAns[1];
-        
     }
     
     // TODO: Fill in the space below with any helper methods that you think you will need
