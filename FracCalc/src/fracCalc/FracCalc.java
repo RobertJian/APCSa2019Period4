@@ -9,9 +9,7 @@ import java.util.*;
 
 public class FracCalc {
 
-    public static void main(String[] args) 
-    {
-        // TODO: Read the input from the user and call produceAnswer with an equation
+    public static void main(String[] args) {
     	Scanner userInput =  new Scanner(System.in);
     	String resume;
     	do {
@@ -20,35 +18,22 @@ public class FracCalc {
     	System.out.println();
     	System.out.println("Do you want to keep going? (Type \"quit\" to end)");
     	resume = userInput.nextLine();
-    	
     	}while (!resume.equals("quit"));
-    	
     	userInput.close(); 
-
     }
     
-    // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
-    // This function takes a String 'input' and produces the result
-    //
-    // input is a fraction string that needs to be evaluated.  For your program, this will be the user input.
-    //      e.g. input ==> "1/2 + 3/4"
-    //        
-    // The function should return the result of the fraction after it has been calculated
-    //      e.g. return ==> "1_1/4"
-    public static String produceAnswer(String input)
-    {
-        // TODO: Implement this function to produce the solution to the input
+    public static String produceAnswer(String input) {
     	String[] splitInput = input.split(" ");
     	String operand1 = splitInput[0];
     	String operator = splitInput[1];
     	String operand2 = splitInput[2];
     	int[] mixNum1 = {0, 0, 1};
     	int[] mixNum2 = {0, 0, 1};
-    	int[] improperFrac1 = {1, 1};
+    	int[] improperFrac1 = {0, 1};
     	int[] improperFrac2 = {0, 1};
     	splitFrac(operand1, mixNum1);
     	splitFrac(operand2, mixNum2);
-    	int[] improperAns = {1, 1};
+    	int[] improperAns = {0, 1};
     	int[] mixAns = {0, 0, 1};
     	toImproperFrac(mixNum1, improperFrac1);
     	toImproperFrac(mixNum2, improperFrac2);
@@ -73,12 +58,35 @@ public class FracCalc {
     		}
     	}
     	if (operator.equals("+")) {
+    		if(improperFrac1[1] != improperFrac2[1]) {
+    			improperAns[0] = improperFrac1[0]* improperFrac2[1] + improperFrac2[0]* improperFrac1[1];
+    			improperAns[1] = improperFrac1[1] * improperFrac2[1];
+    		}else{
+    		improperAns[0] = improperFrac1[0] + improperFrac2[0];
+    		improperAns[1] = improperFrac1[1];
+    		}
+    		toMixedNum(improperAns, mixAns);
+    	if(mixAns[1]!= 0) {
+    		return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
+    	}else {
+    		return mixAns[0] +"";}
     	}
-        return "num:" + improperAns[0] + " dem:" + improperAns[1];
-    }
-    
-    // TODO: Fill in the space below with any helper methods that you think you will need
-    
+    	if (operator.equals("-")) {
+    		if(improperFrac1[1] != improperFrac2[1]) {
+    			improperAns[0] = improperFrac1[0]* improperFrac2[1] - improperFrac2[0]* improperFrac1[1];
+    			improperAns[1] = improperFrac1[1] * improperFrac2[1];
+    		}else{
+    		improperAns[0] = improperFrac1[0] - improperFrac2[0];
+    		improperAns[1] = improperFrac1[1];
+    		}
+    		toMixedNum(improperAns, mixAns);
+    	if(mixAns[1]!= 0) {
+    		return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
+    	}
+    	}
+    		return mixAns[0] +"";
+    	}
+
    public static void splitFrac(String operand, int[] frac) {
 	 if(operand.indexOf("_")!=-1 && operand.indexOf("/")!=-1){
    		String[] mixNum = operand.split("_");
@@ -126,8 +134,6 @@ public class FracCalc {
 		mixedNum[1] /= gcf(newNum, mixedNum[2]);
 		mixedNum[2] /= gcf(newNum, mixedNum[2]);
 	}
-	
-	
 	
 	public static int gcf(int num1, int num2) {
 		int factor = 1;
