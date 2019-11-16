@@ -41,21 +41,13 @@ public class FracCalc {
     		improperAns[0] = improperFrac1[0] * improperFrac2[0];
     		improperAns[1] = improperFrac1[1] * improperFrac2[1];
     		toMixedNum(improperAns, mixAns);
-    		if(improperAns[0]%improperAns[1]!=0) {
-    			return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
-    		}else {
-    			return mixAns[0] + "";
-    		}
+    	
     	}
     	if (operator.equals("/")) {
     		improperAns[0] = improperFrac1[0] * improperFrac2[1];
     		improperAns[1] = improperFrac1[1] * improperFrac2[0];
     		toMixedNum(improperAns, mixAns);
-    		if(improperAns[0]%improperAns[1]!=0) {
-    			return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
-    		}else {
-    			return mixAns[0] + "";
-    		}
+    	
     	}
     	if (operator.equals("+")) {
     		if(improperFrac1[1] != improperFrac2[1]) {
@@ -66,11 +58,8 @@ public class FracCalc {
     		improperAns[1] = improperFrac1[1];
     		}
     		toMixedNum(improperAns, mixAns);
-    	if(mixAns[1]!= 0) {
-    		return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
-    	}else {
-    		return mixAns[0] +"";}
     	}
+    		
     	if (operator.equals("-")) {
     		if(improperFrac1[1] != improperFrac2[1]) {
     			improperAns[0] = improperFrac1[0]* improperFrac2[1] - improperFrac2[0]* improperFrac1[1];
@@ -80,9 +69,11 @@ public class FracCalc {
     		improperAns[1] = improperFrac1[1];
     		}
     		toMixedNum(improperAns, mixAns);
-    	if(mixAns[1]!= 0) {
-    		return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
     	}
+    	if(mixAns[0]!= 0 && mixAns[1] !=0) {
+    		return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
+    	}else if (mixAns[1]!=0){
+    		return mixAns[1] + "/" + mixAns[2];
     	}
     		return mixAns[0] +"";
     	}
@@ -117,15 +108,19 @@ public class FracCalc {
 		if(improper[1]==0) {
 			throw new IllegalArgumentException("0 cannot be in the denominator");
 		}
+		if(improper[0]<0 && improper[1]<0) {
+			improper[0]*=-1;
+			improper[1]*=-1;
+		}else if(improper[0]>0 && improper[1]<0) {
+			improper[0]*=-1;
+			improper[1]*=-1;
+		}
 		ans[0] = improper[0]/improper[1];
 		ans[1] = improper[0]%improper[1];
 		ans[2] = improper[1];
 		simplify(ans);
-		if(ans[1]<0) {
+		if(ans[1]<0 && ans[0]<0) {
 			ans[1]*= -1;
-		}
-		if(ans[2]<0) {
-			ans[2]*= -1;
 		}
 	}
 	
@@ -161,5 +156,5 @@ public class FracCalc {
 		return answer;
 		
 		}
-	//
+
 }
