@@ -37,8 +37,13 @@ public class ArrayListPracticeLab
 	 * empty list, it should return 0.
 	 */
 	public static int maxLength(ArrayList<String> array) {
-		int answer = 0;
-		
+		int length = 0;
+		for(String arrLength : array) {
+			if(arrLength.length() > length) {
+				length = arrLength.length();
+			}
+		}
+		return length;
 	}
 	
 	
