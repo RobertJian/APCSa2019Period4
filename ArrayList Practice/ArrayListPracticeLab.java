@@ -66,7 +66,15 @@ public class ArrayListPracticeLab
 	 *  For example, if the input list is: {"to", "be", "or", "not", "to", "be", "hamlet"} 
 	 *  The returned list should contain {"be", "to", "not", "or", "be", "to", "hamlet"}
 	 */
-	
+	public static void swapPairs(ArrayList<String> arr) {
+		if(arr.size()%2 != 0) {
+		for(int i = 0; i<arr.size()-1; i+=2) {
+				arr[i] = arr[i+1];}
+		}else{
+			for(int i = 0; i<arr.size(); i+=2) {
+				arr[i] = arr[i+1];}
+		}
+	}
 	
 	
 	
