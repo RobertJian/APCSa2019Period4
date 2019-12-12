@@ -66,14 +66,17 @@ public class ArrayListPracticeLab
 	 *  For example, if the input list is: {"to", "be", "or", "not", "to", "be", "hamlet"} 
 	 *  The returned list should contain {"be", "to", "not", "or", "be", "to", "hamlet"}
 	 */
-	public static void swapPairs(ArrayList<String> arr) {
-		if(arr.size()%2 != 0) {
-		for(int i = 0; i<arr.size()-1; i+=2) {
-				arr[i] = arr[i+1];}
-		}else{
-			for(int i = 0; i<arr.size(); i+=2) {
-				arr[i] = arr[i+1];}
+	public static ArrayList<String> swapPairs(ArrayList<String> list) {
+		ArrayList<String> swapped = new ArrayList<String>();
+
+		for(int i = 1; i<=list.size()-1; i+=2) {
+				swapped.add(list.get(i));
+				swapped.add(list.get(i-1));
 		}
+		if(list.size()%2 != 0) {
+			swapped.add(list.get(list.size()-1));
+		}
+		return swapped;
 	}
 	
 	
@@ -88,7 +91,16 @@ public class ArrayListPracticeLab
 	 * any Strings of even length.
 	 * removeEvenLength should not change the input ArrayList.
 	 */
-	
+	public static ArrayList<String> removeEvenLength(ArrayList<String> list){
+		ArrayList<String> removed = new ArrayList<String>();
+		for(int i = 0; i<list.size(); i++) {
+			String temp = list.get(i);
+			if(temp.length()%2 != 0) {
+				removed.add(list.get(i));
+			}
+		}
+		return removed;
+	}
 	
 	
 	
@@ -104,13 +116,22 @@ public class ArrayListPracticeLab
 	 * after the method finishes executing.
 	 */
 	
-	
+	public static void doubleList(ArrayList<String> list){
+		for(int i = 0; i<list.size(); i+=2) {
+			list.add(i+1,list.get(i));
+		}
+	}
 	
 	
 	
 	public static void main(String[] args) 
 	{
 		// Declare an ArrayList of String named myList.  Then fill it with: "this", "is", "it".  Print myList using printMe().
+		ArrayList<String> myList = new ArrayList<String>(); 
+		myList.add("this");
+		myList.add("is");
+		myList.add("it");
+		printMe(myList);
 		
 		
 		
@@ -126,10 +147,9 @@ public class ArrayListPracticeLab
 		String[] test_max_2 = {"Only one really long string"};
 		String[] test_max_3 = {};
 		
-		//printMe( maxLength( convertArrayToList(test_max_1) ) );
-		
-		
-		
+		System.out.print(maxLength(convertArrayToList(test_max_1)) + ", ");
+		System.out.print(maxLength(convertArrayToList(test_max_2)) + ", ");
+		System.out.println(maxLength(convertArrayToList(test_max_3)));
 		
 		// To test your swapPairs method, convert the following to ArrayLists of Strings and 
 		// pass them into your swapPairs method.  
@@ -143,7 +163,10 @@ public class ArrayListPracticeLab
 		String[] test_swap_3 = {"don't move me"};
 		String[] test_swap_4 = {};
 
-		
+		printMe(swapPairs(convertArrayToList(test_swap_1)));
+		printMe(swapPairs(convertArrayToList(test_swap_2)));
+		printMe(swapPairs(convertArrayToList(test_swap_3)));
+		printMe(swapPairs(convertArrayToList(test_swap_4)));
 		
 
 		// To test your removeEvenLength method, convert the following to ArrayLists of Strings and 
@@ -155,9 +178,10 @@ public class ArrayListPracticeLab
 		String[] test_rem_1 = {"This", "is", "a", "test"};
 		String[] test_rem_2 = {"Did", "you", "solve", "it", "or", "what?"};
 		String[] test_rem_3 = {};
-				
 		
-		
+		printMe(removeEvenLength(convertArrayToList(test_rem_1)));		
+		printMe(removeEvenLength(convertArrayToList(test_rem_2)));
+		printMe(removeEvenLength(convertArrayToList(test_rem_3)));
 		
 		// To test your doubleList method, convert the following to ArrayLists of Strings and 
 		// pass them into your doubleList method.  
@@ -168,6 +192,15 @@ public class ArrayListPracticeLab
 		String[] test_doub_1 = {"how", "are", "you?"};
 		String[] test_doub_2 = {"One string only"};		
 		String[] test_doub_3 = {};		
+		ArrayList<String> doub1 = convertArrayToList(test_doub_1);
+		doubleList(doub1);
+		printMe(doub1);
+		ArrayList<String> doub2 = convertArrayToList(test_doub_2);
+		doubleList(doub2);
+		printMe(doub2);
+		ArrayList<String> doub3 = convertArrayToList(test_doub_3);
+		doubleList(doub3);
+		printMe(doub3);
 		
 	}
 		
