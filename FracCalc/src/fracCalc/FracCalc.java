@@ -24,43 +24,43 @@ public class FracCalc {
     
     public static String produceAnswer(String input) {
     	String[] splitInput = input.split(" ");
-    	String operand1 = splitInput[0];
-    	String operator = splitInput[1];
+    	String operand1 = splitInput[0];   
+    	String operator = splitInput[1];  // use this for later on the math
     	String operand2 = splitInput[2];
-    	int[] mixNum1 = {0, 0, 1};
+    	int[] mixNum1 = {0, 0, 1};          //  first convert the operands in to mix numbers, it is formatted into 0, 0, 1 so it would be equal to 0
     	int[] mixNum2 = {0, 0, 1};
-    	int[] improperFrac1 = {0, 1};
+    	int[] improperFrac1 = {0, 1};  //use this to convert mix num to improp frac
     	int[] improperFrac2 = {0, 1};
     	splitFrac(operand1, mixNum1);
     	splitFrac(operand2, mixNum2);
-    	int[] improperAns = {0, 1};
-    	int[] mixAns = {0, 0, 1};
+    	int[] improperAns = {0, 1}; // answer in improper fraction
+    	int[] mixAns = {0, 0, 1}; // convert the improper fraction to mix number answer
     	toImproperFrac(mixNum1, improperFrac1);
     	toImproperFrac(mixNum2, improperFrac2);
     	if (operator.equals("*")) {
-    		improperAns[0] = improperFrac1[0] * improperFrac2[0];
-    		improperAns[1] = improperFrac1[1] * improperFrac2[1];
+    		improperAns[0] = improperFrac1[0] * improperFrac2[0]; // multiply numerator together
+    		improperAns[1] = improperFrac1[1] * improperFrac2[1]; // multiple denominator together
     		toMixedNum(improperAns, mixAns);
     	
     	}
     	if (operator.equals("/")) {
-    		improperAns[0] = improperFrac1[0] * improperFrac2[1];
-    		improperAns[1] = improperFrac1[1] * improperFrac2[0];
+    		improperAns[0] = improperFrac1[0] * improperFrac2[1]; // multiply the reciprocal num * dem
+    		improperAns[1] = improperFrac1[1] * improperFrac2[0]; 
     		toMixedNum(improperAns, mixAns);
     	
     	}
     	if (operator.equals("+")) {
-    		if(improperFrac1[1] != improperFrac2[1]) {
+    		if(improperFrac1[1] != improperFrac2[1]) { // if the denominators are not the same then I do cross multiply so i can add them later on
     			improperAns[0] = improperFrac1[0]* improperFrac2[1] + improperFrac2[0]* improperFrac1[1];
     			improperAns[1] = improperFrac1[1] * improperFrac2[1];
-    		}else{
+    		}else{ // if not, just add 
     		improperAns[0] = improperFrac1[0] + improperFrac2[0];
     		improperAns[1] = improperFrac1[1];
     		}
     		toMixedNum(improperAns, mixAns);
     	}
     		
-    	if (operator.equals("-")) {
+    	if (operator.equals("-")) { //cross multiply 
     		if(improperFrac1[1] != improperFrac2[1]) {
     			improperAns[0] = improperFrac1[0]* improperFrac2[1] - improperFrac2[0]* improperFrac1[1];
     			improperAns[1] = improperFrac1[1] * improperFrac2[1];
@@ -70,15 +70,15 @@ public class FracCalc {
     		}
     		toMixedNum(improperAns, mixAns);
     	}
-    	if(mixAns[0]!= 0 && mixAns[1] !=0) {
+    	if(mixAns[0]!= 0 && mixAns[1] !=0) { // i can print out the whole mix num
     		return mixAns[0] +"_" + mixAns[1] + "/" + mixAns[2];
-    	}else if (mixAns[1]!=0){
+    	}else if (mixAns[1]!=0){// print out just the fraction 
     		return mixAns[1] + "/" + mixAns[2];
-    	}
+    	}//print out the number only
     		return mixAns[0] +"";
     	}
 
-   public static void splitFrac(String operand, int[] frac) {
+   public static void splitFrac(String operand, int[] frac) { //accepts both an operand and place it into an array
 	 if(operand.indexOf("_")!=-1 && operand.indexOf("/")!=-1){
    		String[] mixNum = operand.split("_");
    		frac[0] = Integer.parseInt(mixNum[0]);
