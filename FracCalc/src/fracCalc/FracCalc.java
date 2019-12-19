@@ -80,12 +80,12 @@ public class FracCalc {
 
    public static void splitFrac(String operand, int[] frac) { //accepts both an operand and place it into an array
 	 if(operand.indexOf("_")!=-1 && operand.indexOf("/")!=-1){
-   		String[] mixNum = operand.split("_");
-   		frac[0] = Integer.parseInt(mixNum[0]);
+   		String[] mixNum = operand.split("_"); //split the operands in to mix nums
+   		frac[0] = Integer.parseInt(mixNum[0]); // since the operands are in Strings, I have to convert them with parseint so I can add it into the int array
    		String[]fraction = mixNum[1].split("/");
    		frac[1] = Integer.parseInt(fraction[0]);
    		frac[2] = Integer.parseInt(fraction[1]);
-   	}else if(operand.indexOf("_")==-1 && operand.indexOf("/")!=-1){
+   	}else if(operand.indexOf("_")==-1 && operand.indexOf("/")!=-1){ //this step occurs because there is only a fraction therefore the operand will split only into 2 indexes total
    		String[] fraction = operand.split("/");
    		frac[1] = Integer.parseInt(fraction[0]);
    		frac[2] = Integer.parseInt(fraction[1]);
@@ -124,7 +124,7 @@ public class FracCalc {
 		}
 	}
 	
-	public static void simplify(int[] mixedNum) {
+	public static void simplify(int[] mixedNum) { // using gcf we can simplify the denominators and the numerator after we find the mixAns
 		int newNum = mixedNum[1];
 		mixedNum[1] /= gcf(newNum, mixedNum[2]);
 		mixedNum[2] /= gcf(newNum, mixedNum[2]);
