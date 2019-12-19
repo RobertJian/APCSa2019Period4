@@ -130,7 +130,7 @@ public class FracCalc {
 		mixedNum[2] /= gcf(newNum, mixedNum[2]);
 	}
 	
-	public static int gcf(int num1, int num2) {
+	public static int gcf(int num1, int num2) { 
 		int factor = 1;
 		for(int i = 1; i<= Math.abs((Math.min(num1 , num2))); i++){
 			if(isDivisibleBy(num1, i)==true && isDivisibleBy(num2 , i)==true) {
