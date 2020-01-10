@@ -1,4 +1,4 @@
-package fracCalc;
+package oldfracCalc;
 /*Robert Jian
  * 4th period
  * November 11, 2019
@@ -7,7 +7,7 @@ package fracCalc;
 
 import java.util.*;
 
-public class FracCalc {
+public class OldFracCalc {
 
     public static void main(String[] args) {
     	Scanner userInput =  new Scanner(System.in);
